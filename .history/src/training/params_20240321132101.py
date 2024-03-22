@@ -280,12 +280,6 @@ def parse_args(args):
         help="Override the patch dropout during training, for fine tuning with no dropout near the end as in the paper",
     )
     parser.add_argument(
-        "--normal-masking",
-        default=False,
-        action='store_true',
-        help="masking for normal transformer",
-    )
-    parser.add_argument(
         "--force-custom-text",
         default=False,
         action='store_true',

@@ -360,6 +360,7 @@ class VisionTransformer(nn.Module):
             output_dim: int = 512,
             patch_dropout: float = 0.,
             normal_maksing: bool = False,
+            normal_maksing: bool = False,
             input_patchnorm: bool = False,
             act_layer: Callable = nn.GELU,
             norm_layer: Callable = LayerNorm,

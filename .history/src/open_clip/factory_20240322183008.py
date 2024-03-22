@@ -171,7 +171,6 @@ def create_model(
         force_quick_gelu: bool = False,
         force_custom_text: bool = False,
         force_patch_dropout: Optional[float] = None,
-        normal_masking: bool = False,
         force_image_size: Optional[Union[int, Tuple[int, int]]] = None,
         force_preprocess_cfg: Optional[Dict[str, Any]] = None,
         pretrained_image: bool = False,
@@ -222,10 +221,6 @@ def create_model(
         if force_patch_dropout is not None:
             # override the default patch dropout value
             model_cfg["vision_cfg"]["patch_dropout"] = force_patch_dropout
-
-        if normal_masking is not None:
-            # override the default masking
-            model_cfg["vision_cfg"]["normal_masking"] = normal_masking
 
         if force_image_size is not None:
             # override model config's image size

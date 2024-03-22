@@ -223,10 +223,6 @@ def create_model(
             # override the default patch dropout value
             model_cfg["vision_cfg"]["patch_dropout"] = force_patch_dropout
 
-        if normal_masking is not None:
-            # override the default masking
-            model_cfg["vision_cfg"]["normal_masking"] = normal_masking
-
         if force_image_size is not None:
             # override model config's image size
             model_cfg["vision_cfg"]["image_size"] = force_image_size

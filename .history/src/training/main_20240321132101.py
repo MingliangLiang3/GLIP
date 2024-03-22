@@ -229,7 +229,6 @@ def main(args):
         force_quick_gelu=args.force_quick_gelu,
         force_custom_text=args.force_custom_text,
         force_patch_dropout=args.force_patch_dropout,
-        normal_masking=args.normal_masking,
         force_image_size=args.force_image_size,
         image_mean=args.image_mean,
         image_std=args.image_std,
