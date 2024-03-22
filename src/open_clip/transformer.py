@@ -72,8 +72,8 @@ class PatchDropout(nn.Module):
         return 1 - pdf_values
 
     def forward(self, x):
-        # if not self.training or self.prob == 0.:
-        #     return x
+        if not self.training or self.prob == 0.:
+            return x
 
         if self.exclude_first_token:
             cls_tokens, x = x[:, :1], x[:, 1:]
