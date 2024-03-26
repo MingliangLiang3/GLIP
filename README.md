@@ -19,7 +19,7 @@ showcasing the effect of masking that is focused in the centerand gradually spre
 
 # Results and Pre-trained Models
 
-We pre-train the model according to the settings of [Open_clip](https://github.com/mlfoundations/open_clip)
+We will pre-train the model based on the following code and settings [Open_clip](https://github.com/mlfoundations/open_clip)
 
 **Zero-shot accuracy on ImageNet1K classification.**
 We pre-trained the model for 30 epochs on the CC12M dataset by different image patch mask ratios with ViT-B/16 as the image encoder. Then we fine-tuned the FLIP and GLIP by an additional epoch.
