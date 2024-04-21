@@ -50,6 +50,7 @@ torchrun --nproc_per_node=4 \
     --dataset-type webdataset \
     --batch-size 320 \
     --force-patch-dropout 0.50 \
+    --lr 1e-3 \
     --precision amp \
     --workers 4 \
     --imagenet-val /data/imagenet/validation/
@@ -66,6 +67,7 @@ torchrun --nproc_per_node=4 \
     --dataset-type webdataset \
     --batch-size 320 \
     --force-patch-dropout 0.50 \
+    --lr 1e-3 \
     --normal-masking \
     --precision amp \
     --workers 4 \
@@ -83,7 +85,7 @@ torchrun --nproc_per_node=4 \
     --dataset-type webdataset \
     --pretrained /path/to/checkpoints/epoch_K.pt
     --batch-size 160 \
-    --normal-masking \
+    --lr 5e-6 \
     --precision amp \
     --workers 4 \
     --imagenet-val /data/imagenet/validation/
