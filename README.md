@@ -24,15 +24,21 @@ We will pre-train the model based on the following code and settings [Open_clip]
 **Zero-shot accuracy on ImageNet1K classification.**
 We pre-trained the model for 30 epochs on the CC12M dataset by different image patch mask ratios with ViT-B/16 as the image encoder. Then we fine-tuned the FLIP and GLIP by an additional epoch.
 
-| Method    | Masking | Inference Masking | Inference Unmasking | After Tuning |
-|-----------|---------|-------------------|---------------------|--------------|
-| CLIP      | -       | -                 | 35.5                | -            |
-| FLIP      | 50%     | 32.1              | 34.0                | 34.2         |
-| GLIP  | 50%     | 33.2              | **35.1**            | **35.4**     |
-| FLIP      | 75%     | 26.3              | 29.4                | 30.0         |
-| GLIP  | 75%     | 28.8              | 32.1                | 32.2         |
-| FLIP      | 90%     | 16.6              | 21.1                | 22.0         |
-| GLIP  | 90%     | 20.7              | 16.5                | 25.8         |
+| Method | Masking Ratio | Inference | Unmasking | After Tuning |
+|--------|---------------|-----------|-----------|--------------|
+| CLIP   | -             | -         | 36.5      | -            |
+| RECLIP | 160 x 160     | -         | 36.6      | 37.4         |
+| FLIP   | 50%           | 33.9      | 36.1      | 36.2         |
+| GLIP   | 50%           | 35.4      | 37.1      | 37.2         |
+|--------|---------------|-----------|-----------|--------------|
+| RECLIP | 112 x 112     | -         | 33.0      | 33.4         |
+| FLIP   | 75%           | 28.2      | 32.0      | 32.6         |
+| GLIP   | 75%           | 30.8      | 33.9      | 34.0         |
+|--------|---------------|-----------|-----------|--------------|
+| RECLIP | 64 x 64       | -         | 24.9      | 25.6         |
+| FLIP   | 90%           | 17.9      | 23.5      | 24.5         |
+| GLIP   | 90%           | 22.1      | 18.6      | 28.0         |
+|--------|---------------|-----------|-----------|--------------|
 
 
 # Pre-training
@@ -48,6 +54,8 @@ torchrun --nproc_per_node=4 \
     --train-data '/data/cc12m/cc12m-train-{0000..2175}.tar' \
     --train-num-samples 10968539 \
     --dataset-type webdataset \
+    --model=ViT-B-16 \
+    --aug-cfg scale='(0.50, 1.0)' \
     --batch-size 320 \
     --force-patch-dropout 0.50 \
     --lr 1e-3 \
@@ -65,6 +73,8 @@ torchrun --nproc_per_node=4 \
     --train-data '/data/cc12m/cc12m-train-{0000..2175}.tar' \
     --train-num-samples 10968539 \
     --dataset-type webdataset \
+    --model=ViT-B-16 \
+    --aug-cfg scale='(0.50, 1.0)' \
     --batch-size 320 \
     --force-patch-dropout 0.50 \
     --lr 1e-3 \
@@ -83,9 +93,11 @@ torchrun --nproc_per_node=4 \
     --train-data '/data/cc12m/cc12m-train-{0000..2175}.tar' \
     --train-num-samples 10968539 \
     --dataset-type webdataset \
+    --model=ViT-B-16 \
+    --aug-cfg scale='(0.50, 1.0)' \
     --pretrained /path/to/checkpoints/epoch_K.pt
     --batch-size 160 \
-    --lr 5e-6 \
+    --lr 1e-5 \
     --precision amp \
     --workers 4 \
     --imagenet-val /data/imagenet/validation/
