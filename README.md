@@ -47,6 +47,7 @@ Follow the instruction of [OpenCLIP](https://github.com/mlfoundations/open_clip)
 
 Pre-training [FLIP](https://github.com/facebookresearch/flip/tree/main)
 
+
 ```bash
 cd open_clip/src
 torchrun --nproc_per_node=4 \
@@ -58,6 +59,25 @@ torchrun --nproc_per_node=4 \
     --aug-cfg scale='(0.50, 1.0)' \
     --batch-size 320 \
     --force-patch-dropout 0.50 \
+    --lr 1e-3 \
+    --precision amp \
+    --workers 4 \
+    --imagenet-val /data/imagenet/validation/
+```
+
+Pre-training RELIP
+
+```bash
+cd open_clip/src
+torchrun --nproc_per_node=4 \
+    -m training.main \
+    --train-data '/data/cc12m/cc12m-train-{0000..2175}.tar' \
+    --train-num-samples 10968539 \
+    --dataset-type webdataset \
+    --model=ViT-B-16 \
+    --aug-cfg scale='(0.50, 1.0)' \
+    --batch-size 320 \
+    --force-image-size 160 \
     --lr 1e-3 \
     --precision amp \
     --workers 4 \
