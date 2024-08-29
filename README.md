@@ -11,7 +11,7 @@ We introduce Gaussian masking for Language-Image Pre-Training (GLIP) a novel, st
 
 | (a) Random Masking | (b) Gaussian Masking Sigma=0.1 | (c) Gaussian Masking Sigma=0.2 | (d) Gaussian Masking Sigma=0.8 |
 |:-------------------------:|:--------------------------:|:--------------------------:|:--------------------------:|
-| ![Random Masking](./docs/images/random_mask_image.png) | ![Gaussian Masking Sigma=0.1](./docs/images/gaussian_mask_image_sigma_0.1.png) | ![Gaussian Masking Sigma=0.2](./docs/images/gaussian_mask_image_sigma_0.2.png) | ![Gaussian Masking Sigma=0.8](./docs/images/gaussian_mask_image_sigma_0.8.png) |
+| ![Random Masking](./docs/images/random_distribution.png) | ![Gaussian Masking Sigma=0.1](./docs/images/normal_distribution_0.10.png) | ![Gaussian Masking Sigma=0.2](./docs/images/normal_distribution_0.20.png) | ![Gaussian Masking Sigma=0.8](./docs/images/normal_distribution_0.80.png) |
 
 *Comparison of Random and Gaussian Masking Strategies.*
 Image (a) demonstrates a random masking strategy with uniform masking probability. 
