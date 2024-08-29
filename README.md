@@ -20,7 +20,7 @@ Images (b), (c), and (d) illustrate Gaussian masking with increasing standard de
 showcasing the effect of masking that is focused in the centerand gradually spreads to the edges. 
 
 
-# Results and Pre-trained Models
+# Results
 
 We will pre-train the model based on the following code and settings [Open_clip](https://github.com/mlfoundations/open_clip)
 
