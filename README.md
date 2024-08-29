@@ -1,6 +1,7 @@
 # GLIP: Centered Masking for Language-Image Pre-Training 
 ![GLIP](./docs/GLIP.jpg)
 
+[Our paper](https://arxiv.org/abs/2403.15837) is accepted by ECML 2024.
 
 [Our paper](https://arxiv.org/abs/2403.15837) is accepted by ECML 2024
 
