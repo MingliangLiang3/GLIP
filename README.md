@@ -37,10 +37,20 @@ We pre-trained the model for 30 epochs on the CC12M dataset by different image p
 | GLIP   | 75%           | 30.8      | 33.9      | 34.0         |
 |--------|---------------|-----------|-----------|--------------|
 | RECLIP | 64 x 64       | -         | 24.9      | 25.6         |
-| FLIP   | 90%           | 17.9      | 23.5      | 24.5         |
-| GLIP   | 90%           | 22.1      | 18.6      | 28.0         |
+| FLIP   | 91.8%         | 17.9      | 23.5      | 24.5         |
+| GLIP   | 91.8%         | 22.1      | 18.6      | 28.0         |
 |--------|---------------|-----------|-----------|--------------|
 
+
+We pre-trained the model for 6 epochs on the Laion400M dataset by 91.8% image patch mask ratios with ViT-B/16 as the image encoder. Then we fine-tuned the FLIP and GLIP by a 0.4 epoch.
+For the Laion400M dataset, we successfully download 297M data.
+
+| Method | Masking Ratio | Inference | Unmasking | After Tuning |
+|--------|---------------|-----------|-----------|--------------|
+| RECLIP | 64 x 64       | -         | 49.1      | 56.8         |
+| FLIP   | 91.8%         | 34.2      | 42.5      | 52.7         |
+| GLIP   | 91.8%         | 38.7      | 23.5      | 56.6         |
+|--------|---------------|-----------|-----------|--------------|
 
 # Pre-training
 
