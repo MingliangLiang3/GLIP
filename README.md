@@ -42,15 +42,25 @@ We pre-trained the model for 30 epochs on the CC12M dataset by different image p
 |--------|---------------|-----------|-----------|--------------|
 
 
-We pre-trained the model for 6 epochs on the Laion400M dataset by 91.8% image patch mask ratios with ViT-B/16 as the image encoder. Then we fine-tuned the RECLIP, FLIP and GLIP by a 0.4 epoch.
-For the Laion400M dataset, we successfully download 297M data.
+We pre-trained the model for 6 epochs on the Laion400M dataset by 91.8% image patch mask ratios with ViT-B/16 as the image encoder. Then we fine-tuned the RECLIP, FLIP, and GLIP by a 0.4 epoch.
+For the Laion400M dataset, we successfully download 297M data. We pre-trained and fine-tuned the models on 4 H100 GPU with amp_bf16 precision. 
 
-| Method | Masking Ratio | Inference | Unmasking | After Tuning |
-|--------|---------------|-----------|-----------|--------------|
-| RECLIP | 64 x 64       | -         | 49.1      | 56.8         |
-| FLIP   | 91.8%         | 34.2      | 42.5      | 52.7         |
-| GLIP   | 91.8%         | 38.7      | 23.5      | 56.6         |
-|--------|---------------|-----------|-----------|--------------|
+| Method | Masking Ratio | Image Token | Inference | Unmasking | After Tuning |
+|--------|---------------|-------------|-----------|-----------|--------------|
+| RECLIP | 64 x 64       |   17        | -         | 49.1      | 56.8         |
+| FLIP   | 91.8%         |   17        | 34.2      | 42.5      | 52.7         |
+| GLIP   | 91.8%         |   17        | 38.7      | 23.5      | 56.6         |
+
+GLIP can also be applied to images of a small size. (We did not have enough resources to pre-train our dataset with 112 x 112 image size yet, and the results are referenced from CLIPA [1].)
+The setting is the same as before.
+
+| Method         | Image Size | Masking Ratio | Image Token | Before Tuning | After Tuning |
+|----------------|------------|---------------|-------------|---------------|-----------|
+| RECLIP [1]     | 112 x 112  |  0%           | 50          | 59.0          | 62.9      |
+| RECLIP + FLIP  | 112 x 112  | 50%           | 25          | ----          | ----      |
+| RECLIP + GLIP  | 112 x 112  | 50%           | 25          | 55.7          | 59.7      |
+
+
 
 # Pre-training
 
@@ -137,3 +147,7 @@ torchrun --nproc_per_node=4 \
 # Evaluation
 
 We use [CLIP_benchmark](https://github.com/LAION-AI/CLIP_benchmark/tree/main) to evaluate CLIP, FLIP and GLIP on a standard set of datasets on different tasks.
+
+
+# Reference
+[1] Li, Xianhang and Wang, Zeyu and Xie, Cihang. An inverse scaling law for clip training. NeurIPS 2024
