@@ -56,11 +56,11 @@ For the Laion400M dataset, we successfully download 297M data. We pre-trained an
 GLIP can also be applied to images of a small size. (We did not have enough resources to pre-train our dataset with 112 x 112 image size yet, and the results are referenced from CLIPA [1].)
 The setting is the same as before.
 
-| Method         | Image Size | Masking Ratio | Image Token | Before Tuning | After Tuning |
-|----------------|------------|---------------|-------------|---------------|-----------|
-| RECLIP [1]     | 112 x 112  |  0%           | 50          | 59.0          | 62.9      |
-| RECLIP + FLIP  | 112 x 112  | 50%           | 25          | ----          | ----      |
-| RECLIP + GLIP  | 112 x 112  | 50%           | 25          | 55.7          | 59.7      |
+| Method         | Image Size | Sample Seen | Masking Ratio | Image Token | Before Tuning | After Tuning |
+|----------------|------------|-------------|---------------|-------------|---------------|--------------|
+| RECLIP [1]     | 112 x 112  | 2B          | 0%            | 50          | 59.0          | 62.9         |
+| RECLIP + FLIP  | 112 x 112  | ----        | 50%           | 25          | ----          | ----         |
+| RECLIP + GLIP  | 112 x 112  | 1.9B        | 50%           | 25          | 55.7          | 59.7         |
 
 
 
