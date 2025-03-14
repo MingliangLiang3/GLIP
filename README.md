@@ -53,7 +53,7 @@ For the Laion400M dataset, we successfully download 297M data. We pre-trained an
 | FLIP   | 91.8%         |   17        | 34.2      | 42.5      | 52.7         |
 | GLIP   | 91.8%         |   17        | 38.7      | 23.5      | 56.6         |
 
-GLIP can also be applied to images of a small size. (We did not have enough resources to pre-train our dataset with 112 x 112 image size yet, and the results are referenced from CLIPA [1].)
+GLIP can also be applied to images of a small size. 
 The setting is the same as before.
 
 | Method         | Image Size | Sample Seen | Masking Ratio | Image Token | Before Tuning | After Tuning |
@@ -151,5 +151,3 @@ torchrun --nproc_per_node=4 \
 We use [CLIP_benchmark](https://github.com/LAION-AI/CLIP_benchmark/tree/main) to evaluate CLIP, FLIP and GLIP on a standard set of datasets on different tasks.
 
 
-# Reference
-[1] Li, Xianhang and Wang, Zeyu and Xie, Cihang. An inverse scaling law for clip training. NeurIPS 2024
