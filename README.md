@@ -44,8 +44,8 @@ We pre-trained the model for 30 epochs on the CC12M dataset by different image p
 
 # Pre-trained on LAION-400M
 
-We pre-trained the model for 6 epochs on the Laion400M dataset by 91.8% image patch mask ratios with ViT-B/16 as the image encoder. Then we fine-tuned the RECLIP, FLIP, and GLIP by a 0.4 epoch.
-For the Laion400M dataset, we successfully download 297M data. We pre-trained and fine-tuned the models on 4 H100 GPU with amp_bf16 precision. 
+We pre-trained the model for 6 epochs on the LAION400M dataset by 91.8% image patch mask ratios with ViT-B/16 as the image encoder. Then we fine-tuned the RECLIP, FLIP, and GLIP by a 0.4 epoch.
+For the LAION400M dataset, we successfully download 297M data. We pre-trained and fine-tuned the models on 4 H100 GPU with amp_bf16 precision. 
 
 | Method | Masking Ratio | Image Token | Inference | Unmasking | After Tuning |
 |--------|---------------|-------------|-----------|-----------|--------------|
