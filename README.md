@@ -59,7 +59,7 @@ The setting is the same as before.
 | Method         | Image Size | Sample Seen | Masking Ratio | Image Token | Before Tuning | After Tuning |
 |----------------|------------|-------------|---------------|-------------|---------------|--------------|
 | RECLIP         | 112 x 112  | 1.9B        | 0%            | 50          | 57.4          | 61.2         |
-| RECLIP + FLIP  | 112 x 112  | ----        | 50%           | 25          | ----          | ----         |
+| RECLIP + FLIP  | 112 x 112  | ----        | 50%           | 25          | 55.0          | 58.7        |
 | RECLIP + GLIP  | 112 x 112  | 1.9B        | 50%           | 25          | 55.7          | 59.7         |
 
 
